@@ -1,7 +1,7 @@
-# 09_proximity.py
+# 10_proximity.py
 # From the code for the Electronics Starter Kit for the Raspberry Pi by MonkMakes.com
 
-from gpiozero import DigitalOutputDevice, LED, InputDevice
+from gpiozero import DigitalOutputDevice, LED, Button
 import time
 
 # This project uses the Capsense technique modelled on this:
@@ -12,11 +12,12 @@ threshold = 0
 
 # setup the pin modes
 send_pin = DigitalOutputDevice(18)
-sense_pin = InputDevice(23, pull_up=None, active_state=True)
+sense_pin = Button(23, pull_up=None, active_state=True)
 red_led = LED(24)
+send_pin.on()
 
 # return the time taken for the sense pin to flip state as a result of
-# the capcitatve effect of being near the sense pin 
+# the capcitatve effect of being near the sense pin
 def step():
     send_pin.off()
     t1 = time.time()
@@ -42,8 +43,8 @@ def calibrate():
     threshold = maximum * 1.1
     print(threshold)
     print("Calibration Complete")
-    
-    
+
+
 calibrate()
 
 while True:
