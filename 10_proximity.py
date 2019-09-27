@@ -40,7 +40,7 @@ def calibrate():
         reading = step()
         if reading > maximum:
             maximum = reading
-    threshold = maximum * 1.1
+    threshold = maximum * 1.2
     print(threshold)
     print("Calibration Complete")
 
@@ -49,4 +49,4 @@ calibrate()
 
 while True:
     reading = step() # take a reading
-    red_led.value = reading > (threshold) # LED on if reading > threshold, otherwise off
+    red_led.value = (reading > threshold) # LED on if reading > threshold, otherwise off
