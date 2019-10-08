@@ -1,4 +1,4 @@
-# 06_reactions.py
+# 07_reactions.py
 # From the code for the Electronics Starter Kit for the Raspberry Pi by MonkMakes.com
 
 from gpiozero import LED, Button
