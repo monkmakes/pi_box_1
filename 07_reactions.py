@@ -26,7 +26,7 @@ while True:
     right_led.off()
     print("Press the button next to the LED that lights up")
     delay = random.randint(3, 7)    # random delay of 3 to 7 seconds
-    color = random.randint(1, 2)    # random color red=1, green=2
+    led = random.randint(1, 2)    # random led left=1, right=2
     time.sleep(delay)
     if (color == 1):
         print("left")
@@ -38,7 +38,7 @@ while True:
     while not key_pressed():
         pass
     t2 = time.time()
-    if key_pressed() != color :   # check the right buton was pressed
+    if key_pressed() != led :   # check the correct button was pressed
         print("WRONG BUTTON")
     else:
         # display the response time
