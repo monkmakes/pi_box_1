@@ -2,7 +2,6 @@
 # From the code for the Electronics Starter Kit for the Raspberry Pi by MonkMakes.com
 
 from gpiozero import LED
-import time
 from signal import pause
 
 red_led = LED(18)

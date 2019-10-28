@@ -1,26 +1,37 @@
 from PiAnalog import *
 from guizero import App, Text
-from gpiozero import Buzzer
+from gpiozero import DigitalOutputDevice
 import time
 
 set_temp = 77 # 77 in degrees F
 
-buzzer = Buzzer(24)
+pin1 = DigitalOutputDevice(24)
+pin2 = DigitalOutputDevice(25)
+p = PiAnalog()
 
 def buzz(pitch, duration):
     period = 1.0 / pitch
-    delay = period / 2
+    p2 = period / 2
     cycles = int(duration * pitch)
-    buzzer.beep(on_time=period, off_time=period, n=int(cycles/2))
+    for i in range(0, cycles):
+        pin1.on()
+        pin2.off()
+        delay(p2)
+        pin1.off()
+        pin2.on()
+        delay(p2)
 
-p = PiAnalog()
+def delay(p):
+    t0 = time.time()
+    while time.time() < t0 + p:
+        pass
 
 # Update the temperature reading
 def update_temp():
     temperature = p.read_temp_f()
     if temperature > set_temp:
         buzz(1000, 0.3)
-    temperature = "%.2f" % temperature # Round the temperature to 2 d.p. 
+    temperature = "%.2f" % temperature # Round the temperature to 2 d.p.
     temp_text.value = temperature
     temp_text.after(1000, update_temp)
 
