@@ -1,4 +1,4 @@
-# 08_light_harp.py
+# 09_light_harp.py
 # From the code for the Electronics Starter Kit for the Raspberry Pi by MonkMakes.com
 
 from gpiozero import DigitalOutputDevice

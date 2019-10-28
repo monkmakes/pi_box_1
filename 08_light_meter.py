@@ -1,4 +1,4 @@
-# 07_light_meter.py
+# 08_light_meter.py
 # From the code for the Electronics Starter Kit for the Raspberry Pi by MonkMakes.com
 
 from guizero import App, Text
