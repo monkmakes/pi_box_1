@@ -1,31 +1,25 @@
 from gpiozero import Button, RGBLED
 from colorzero import Color
-from signal import pause
-import time, random, requests
+import time, requests
 
+update_period = 10 # seconds
 led = RGBLED(red=18, green=23, blue=24)
-button = Button(25, hold_time=2)
+button = Button(25)
 
 cheerlights_url = "http://api.thingspeak.com/channels/1417/field/2/last.txt"
-cheer_colors = ["#FF0000", "#008000", "#0000FF", "#00FFFF", "#FFFFFF", "#FDF5E6", "#800080", "#FF00FF", "#FFFF00", "#FFA500", "#FFC0CB"]
+old_color = None
 
 def pressed():
-    color_index = random.randint(0, 10)
-    color = cheer_colors[color_index]
-    print(color)
-    led.color = Color(color)
+    led.color = Color(0, 0, 0)
+button.when_pressed = pressed
 
-def held():
+while True:
     try:
         cheerlights = requests.get(cheerlights_url)
         color = cheerlights.content
-        print(color)
-        led.color = Color(color)
+        if color != old_color:
+            led.color = Color(color)
+            old_color = color
     except Exception as e:
         print(e)
-    time.sleep(1)
-
-button.when_pressed = pressed
-button.when_held = held
-
-pause()
+    time.sleep(update_period)
