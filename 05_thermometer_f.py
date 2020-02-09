@@ -1,3 +1,6 @@
+# 05_thermometer_f.py
+# From the code for the Box 1 kit for the Raspberry Pi by MonkMakes.com
+
 from PiAnalog import *
 from guizero import App, Text
 import time

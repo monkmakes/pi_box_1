@@ -1,5 +1,5 @@
 # 10_proximity.py
-# From the code for the Electronics Starter Kit for the Raspberry Pi by MonkMakes.com
+# From the code for the Box 1 kit for the Raspberry Pi by MonkMakes.com
 
 from gpiozero import DigitalOutputDevice, LED, Button
 import time

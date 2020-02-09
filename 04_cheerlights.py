@@ -1,3 +1,6 @@
+# 04_cheerlights.py
+# From the code for the Box 1 kit for the Raspberry Pi by MonkMakes.com
+
 from gpiozero import Button, RGBLED
 from colorzero import Color
 import time, requests

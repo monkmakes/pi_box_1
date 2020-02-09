@@ -1,3 +1,6 @@
+# 06_thermometer_plus.py
+# From the code for the Box 1 kit for the Raspberry Pi by MonkMakes.com
+
 from PiAnalog import *
 from guizero import App, Text
 from gpiozero import DigitalOutputDevice

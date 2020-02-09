@@ -1,3 +1,6 @@
+# 03_rgb.py
+# From the code for the Box 1 kit for the Raspberry Pi by MonkMakes.com
+
 from gpiozero import RGBLED
 from guizero import App, Slider, Text
 from colorzero import Color
