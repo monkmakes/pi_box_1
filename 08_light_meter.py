@@ -5,21 +5,6 @@ from guizero import App, Text
 from PiAnalog import *
 import time, math
 
-# This project uses a photoresistor, a component whose resistance varies with the light falling on it.
-# To measure its resistance, the code records the time it takes for a capacitor to fill  
-# when supplied by a current passing through the resistor. The lower the resistance the faster 
-# it fills up. 
-#
-# You can think of a capacitor as a tank of electricity, and as it fills with charge, the voltage
-# across it increases. We cannot measure that voltage directly, because the Raspberry Pi
-# does not have an analog to digital convertor (ADC or analog input). However, we can time how long it
-# takes for the capacitor to fill with charge to the extent that it gets above the 1.65V or so
-# that counts as being a high digital input. 
-# 
-# For more information on this technique take a look at: 
-# learn.adafruit.com/basic-resistor-sensor-reading-on-raspberry-pi
-# The code here is based on that in the Raspberry Pi Cookbook (Recipes 12.1 to 12.3)
-
 p = PiAnalog()
 
 def light_from_r(R):
