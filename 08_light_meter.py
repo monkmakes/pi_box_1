@@ -22,15 +22,6 @@ import time, math
 
 p = PiAnalog()
 
-def read_resistance():
-    n = 20
-    total = 0;
-    for i in range(1, n):
-        total = total + p.analog_read()
-    reading = total / float(n)
-    resistance = reading * 6.05 - 939
-    return resistance
-
 def light_from_r(R):
     # Log the reading to compress the range
     return math.log(1000000.0/R) * 10.0 
@@ -38,7 +29,7 @@ def light_from_r(R):
 # group together all of the GUI code
 # Update the reading
 def update_reading():
-    light = light_from_r(read_resistance())
+    light = light_from_r(p.read_resistance())
     reading_str = "{:.0f}".format(light)
     light_text.value = reading_str
     light_text.after(200, update_reading)
