@@ -28,7 +28,7 @@ while True:
     delay = random.randint(3, 7)    # random delay of 3 to 7 seconds
     led = random.randint(1, 2)    # random led left=1, right=2
     time.sleep(delay)
-    if (color == 1):
+    if (led == 1):
         print("left")
         left_led.on()
     else:
